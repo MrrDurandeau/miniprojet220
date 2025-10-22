@@ -148,3 +148,12 @@ nav ul {
 }
 
 /*Section intro*/
+
+/*Section séismes importants*/
+.section_seismes_importants h2 {
+    background-color:#446100;
+    padding: 1rem 0 1rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+/*Section séismes importants*/
