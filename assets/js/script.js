@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Partie séismes connus
 	const section_intro = document.getElementsByClassName('section_intro')[0];
     const slides = section_intro.querySelectorAll('.slide');
+	const slide_number = document.getElementsByClassName('slide_number')[0];
     var index = 0;
 
     section_intro.querySelector('.next').addEventListener('click', function(){
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             index = 0;
         }
         slides[index].classList.add('active');
+		slide_number.innerHTML = index + 1 +"/4";
     })
 
      section_intro.querySelector('.prev').addEventListener('click', function(){
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             index = (slides.length -1);
         }
         slides[index].classList.add('active');
+		slide_number.innerHTML = index + 1 +"/4";
     })
 	// Partie tremblements de terre à haute magnitude
 	const section_seismes_importants = document.getElementsByClassName('section_seismes_importants')[0];
