@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[index].classList.remove('active');
         index--;
         if (index == -1) {
-            index = 0;
+            index = (slides.length -1);
         }
         slides[index].classList.add('active');
     })
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slides_sec2[index_sec2].classList.remove('active');
         index_sec2--;
         if (index_sec2 == -1) {
-            index_sec2 = 0;
+            index_sec2 = (slides_sec2.length - 1);
         }
         slides_sec2[index_sec2].classList.add('active');
     })
