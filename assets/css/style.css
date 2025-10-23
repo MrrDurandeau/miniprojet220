@@ -32,6 +32,13 @@ article {
     background-color: rgb(246, 241, 241);
 }
 
+.section_title {
+    background-color:#446100;
+    padding: 1rem 0 1rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 /*Partie commune*/
 
 /*Partie Header*/
@@ -72,13 +79,6 @@ nav ul {
     width: 75rem;
     margin: auto;
     margin-top: 5rem;
-}
-
-.section_intro h2 {
-    background-color:#446100;
-    padding: 1rem 0 1rem 0;
-    text-align: center;
-    margin-bottom: 3rem;
 }
 
 .section_intro h3 {
@@ -150,10 +150,5 @@ nav ul {
 /*Section intro*/
 
 /*Section séismes importants*/
-.section_seismes_importants h2 {
-    background-color:#446100;
-    padding: 1rem 0 1rem 0;
-    text-align: center;
-    margin-bottom: 3rem;
-}
+
 /*Section séismes importants*/
