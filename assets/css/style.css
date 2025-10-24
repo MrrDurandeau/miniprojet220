@@ -306,9 +306,10 @@ nav ul {
   margin-left: 32rem;
   margin-top: 8rem;
 }
-
+.regle-or {
+	padding-top: 10rem;
+}
 .regle-or p {
-  padding-top: 10rem;
   text-align: center;
   font-size: 2rem;
   color: var(--gold-color);
