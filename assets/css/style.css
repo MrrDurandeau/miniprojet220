@@ -288,38 +288,32 @@ nav ul {
 }
 .second {
   position: absolute;
-  margin-left: 10rem;
+  margin-left: 8rem;
   margin-top: 2rem;
 }
 .third {
   position: absolute;
-  margin-left: 20rem;
+  margin-left: 16rem;
   margin-top: 4rem;
 }
 .fourth {
   position: absolute;
-  margin-left: 30rem;
+  margin-left: 24rem;
   margin-top: 6rem;
 }
 .fifth {
   position: absolute;
-  margin-left: 40rem;
+  margin-left: 32rem;
   margin-top: 8rem;
 }
 
-.regle-or {
-  padding-top: 15rem;
+.regle-or p {
+  padding-top: 10rem;
   text-align: center;
   font-size: 2rem;
   color: var(--gold-color);
 }
-.regle-or h3 {
-  font-size: 1.8rem;
-}
-.regle-or p:hover {
-  color: var(--primary-color);
-  cursor: pointer;
-}
+
 /*Section séismes importants*/
 .section_seismes_importants {
 	width: 75rem;
