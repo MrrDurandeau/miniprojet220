@@ -5,7 +5,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+	--primary-color: #1E3A8A;
+  --secondary-color: #7C5A44;
+  --gold-color: #FACC15;
+  --gray-black-color: #1F2937;
+  --white-color: #fefefe;
+}
 /*Partie commune*/
 
 body {
@@ -155,13 +161,7 @@ nav ul {
 }
 
 /*Section intro*/
-:root {
-	--primary-color: #1E3A8A;
-  --secondary-color: #7C5A44;
-  --gold-color: #FACC15;
-  --gray-black-color: #1F2937;
-  --white-color: #fefefe;
-}
+
 
 .que-faire h4,
 .recent h4 {
@@ -177,18 +177,20 @@ nav ul {
 .card {
   background: var(--white-color);
   padding: 1.5rem;
+	widht: 80%;
 }
 .quake {
   display: flex;
   justify-content: space-around;
   align-items: center;
+	padding-top: 0.5rem;
 }
 .position {
   color: var(--primary-color);
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .magnitude {
-  font-size: 2rem; 
+  font-size: 1.3rem; 
   color: var(--gold-color);
 }
 .heure {
