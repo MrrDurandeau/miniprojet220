@@ -177,20 +177,20 @@ nav ul {
 .card {
   background: var(--white-color);
   padding: 1.5rem;
-	widht: 80%;
+	widht: 60%;
 }
 .quake {
   display: flex;
   justify-content: space-around;
   align-items: center;
-	padding-top: 0.5rem;
+	padding-top: 0.7rem;
 }
 .position {
   color: var(--primary-color);
   font-size: 1.5rem;
 }
 .magnitude {
-  font-size: 1.3rem; 
+  font-size: 1.4rem; 
   color: var(--gold-color);
 }
 .heure {
