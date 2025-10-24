@@ -60,14 +60,14 @@ article {
 /*Partie navigation*/
 
 nav {
-    background-color: #b5b5b5;
+    background-color: #1F2937;
     padding: 1rem;
     justify-content: space-around;
     /* gap: 8rem; */
 }
 
 nav a {
-    color: #4A4A4A;
+    color: #FEFEFE;
 }
 
 nav img {
@@ -80,6 +80,10 @@ nav ul {
 
 .logo-txt {
  gap: 1rem;
+}
+
+h1 {
+    color: #FEFEFE;
 }
 
 /*Partie navigation*/
