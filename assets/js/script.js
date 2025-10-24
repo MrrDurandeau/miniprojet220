@@ -1,4 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
+	// Le plus récent
+    async function fetchLatestEarthquake() {
+        const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
+        const res = await fetch(url);
+        const data = await res.json();
+      
+        if (data.features.length > 0) {
+            // On prend le plus récent
+            const quake = data.features[0];
+            const props = quake.properties;
+            const date = new Date(props.time);
+
+            document.getElementById("earthquake").innerHTML = `
+            <h2 class="position">${props.place}</h2>
+            <div class="quake">
+            <p class="magnitude">Magnitude : ${props.mag}</p>
+            <p class="heure">Heure : ${date.toLocaleString()}</p>
+            <p><a href="${props.url}" target="_blank">Détails USGS</a></p>
+            </div>
+            `;
+        } else {
+            document.getElementById("earthquake").textContent = "Aucun séisme récent.";
+        }
+    }
+
+    // Charger les données au démarrage
+    fetchLatestEarthquake();
+
+    // Rafraîchir toutes les 60 secondes
+    setInterval(fetchLatestEarthquake, 60000);
+	
 	// Partie séismes connus
 	const section_intro = document.getElementsByClassName('section_intro')[0];
     const slides = section_intro.querySelectorAll('.slide');
