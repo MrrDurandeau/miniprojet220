@@ -182,13 +182,10 @@ nav ul {
 .recent {
   padding: 5rem;
   background-color: var(--white-color);
-  border: 10px solid var(--gray-black-color);
 }
 .card {
   background: var(--white-color);
   padding: 1.5rem;
-  box-shadow: 0 4px 10px var(--gray-black-color);
-  width: 60%;
 }
 .quake {
   display: flex;
