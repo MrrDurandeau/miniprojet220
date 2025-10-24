@@ -332,3 +332,52 @@ h3 {
 /*Section séismes importants*/
 
 /*Section séismes importants*/
+
+/*Section recherche*/
+
+h3 {
+    margin-bottom: 1rem;
+}
+
+.section_recherche {
+    width: 75rem;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.form-result {
+    background-color: rgb(246, 241, 241);
+    padding: 1rem;
+}
+
+.form_options {
+    color:  #446100;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: #44610015;
+}
+
+.form_search_item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+form input {
+    color: #616161;
+    border: 1px solid #909090;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    width: 7rem;
+}
+
+form select {
+    color: #616161;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+}
+/*Section recherhce*/
