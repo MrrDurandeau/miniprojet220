@@ -96,4 +96,37 @@ document.addEventListener("DOMContentLoaded", () => {
 		let quakeDate = `${quakeDateObject.getDate()}-${quakeDateObject.getMonth()+1}-${quakeDateObject.getFullYear()}`;
 		slides[index].innerHTML=`<p>${data.properties.place}<br><span>Magnitude ${data.properties.mag}</span><br><span>${quakeDate}</span></p>`;
 	};
+
+	// Partie recherche
+	const section_recherche = document.getElementsByClassName("section_recherche")[0];
+	const search_url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=100`;
+	const coords = {"ME": "", "AN": "&minlatitude=8.755&maxlatitude=72.182&minlongitude=-169.453&maxlongitude=-47.813", "AS": "&minlatitude=-58.263&maxlatitude=20.961&minlongitude=-93.516&maxlongitude=-31.289", "EU": "&minlatitude=35.747&maxlatitude=71.691&minlongitude=-13.887&maxlongitude=45", "AU": "&minlatitude=-44.59&maxlatitude=-9.449&minlongitude=110.391&maxlongitude=156.797", "ASI": "&minlatitude=-10.941&maxlatitude=77.365&minlongitude=69.961&maxlongitude=190.547", "AF": "&minlatitude=-35.791&maxlatitude=33.724&minlongitude=-17.227&maxlongitude=46.582"};
+
+    const bouton = document.getElementById('recupBtn');
+    const search_result = document.getElementById('search_result')
+
+    bouton.addEventListener('click', () => {
+        search_result.innerHTML = "";
+        const form_lieu = document.getElementById('lieu').value;
+        const form_date = document.getElementById('date').value;
+        const form_date_fin = document.getElementById('date_fin').value;
+        const form_magnitude_max = document.getElementById('magnitude_max').value;
+        const form_magnitude_min = document.getElementById('magnitude_min').value;
+        const form_profondeur_max = document.getElementById('profondeur_max').value;
+        const form_profondeur_min = document.getElementById('profondeur_min').value;
+        const form_alert = document.getElementById('alert').value;
+        console.log(form_lieu, form_date, form_date_fin, form_magnitude_min, form_magnitude_max, form_profondeur_min, form_profondeur_max, form_alert)
+
+        console.log(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson${coords[form_lieu]}&starttime=${form_date}&endtime=${form_date_fin}&minmagnitude=${form_magnitude_min}&maxmagnitude=${form_magnitude_max}&mindepth=${form_profondeur_min}&maxdepth=${form_profondeur_max}&alertlevel=${form_alert}&limit=100`);
+
+        const form_url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson${coords[form_lieu]}&starttime=${form_date}&endtime=${form_date_fin}&minmagnitude=${form_magnitude_min}&maxmagnitude=${form_magnitude_max}&mindepth=${form_profondeur_min}&maxdepth=${form_profondeur_max}&alertlevel=${form_alert}&limit=100`;
+        fetch(form_url)
+            .then(response => response.json())
+            .then(data => {
+                data.features.forEach(earthquake => {
+                    search_result.innerHTML +=`<p>${earthquake.properties.place}</p><br>`;
+                });
+            })
+    })
+	
 })
