@@ -180,7 +180,7 @@ nav ul {
 .card {
   background: var(--white-color);
   padding: 1.5rem;
-	widht: 60%;
+	width: 60%;
 }
 .quake {
   display: flex;
