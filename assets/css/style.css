@@ -161,12 +161,14 @@ nav ul {
   --gray-black-color: #1F2937;
   --white-color: #fefefe;
 }
-h2 {
+.que-faire h3,
+.recent h3 {
   font-size: 2rem;
   padding-bottom: 2rem;
   text-transform: uppercase;
 }
-h3 {
+.que-faire h4,
+.recent h4 {
   font-size: 1.3rem;
 }
 
