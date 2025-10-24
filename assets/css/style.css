@@ -38,7 +38,10 @@ article {
     margin-bottom: 1.5rem;
     background-color: rgb(246, 241, 241);
 }
-
+.sombre {
+	background-color: var(--gray-black-color);
+  	color: var(--white-color);
+}
 .section_title {
     background-color:#446100;
 	color: #FEFEFE;
@@ -198,10 +201,6 @@ nav ul {
   font-size: 1.3rem;
 }
 /* Que faire */
-.que-faire {
-  background-color: var(--gray-black-color);
-  color: var(--white-color);
-}
 
 .pendant-div {
   display: flex;
