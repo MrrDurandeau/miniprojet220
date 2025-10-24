@@ -93,7 +93,7 @@ nav ul {
     margin-bottom: 1rem;
 }
 
-.slider {
+.section_intro .slider {
     position: relative;
     /* background-color: red; */
     max-height: 20rem;
@@ -101,18 +101,18 @@ nav ul {
     margin: auto;
 }
 
-.slide{
+.section_intro .slide{
     display: none;
     /* width: 100%; */
 }
 
-.slide img {
+.section_intro .slide img {
     width: 100%;
     max-height: 20rem;
     display: block;
 }
 
-.slide p {
+.section_intro .slide p {
     background-color: rgba(53, 53, 53, 0.5);
     color: white;
     padding: 1rem;
@@ -123,18 +123,18 @@ nav ul {
     text-align: center;
 }
 
-.slide p a {
+.section_intro .slide p a {
     background-color: rgba(255, 255, 255, 0.63);
     padding: 0.3rem;
     border-radius: 1rem;
     color:#446100;
 }
 
-.active {
+.section_intro .active {
     display: block;
 }
 
-.arrow {
+.section_intro .arrow {
     position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -147,16 +147,16 @@ nav ul {
       border-radius: 50%;
 }
 
-.slide_number {
+.section_intro .slide_number {
     margin-top: 0.5rem;
     text-align: center;
 }
 
-.prev {
+.section_intro .prev {
     left: 0.5rem;
 }
 
-.next {
+.section_intro .next {
     right: 0.5rem;
 }
 
@@ -322,7 +322,41 @@ nav ul {
   cursor: pointer;
 }
 /*Section séismes importants*/
+.section_seismes_importants {
+	width: 75rem;
+	margin: auto;
+    margin-top: 5rem;
+}
 
+.section_seismes_importants .slider {
+	max-height: 20rem;
+    max-width: 70rem;
+    margin: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.section_seismes_importants .slide {
+	display: none;
+	width: 40rem;
+	padding: 2rem;
+	box-shadow: 2px 2px 2px 2px var(--gray-black-color);
+}
+
+.section_seismes_importants .active {
+	display: block;
+}
+
+.section_seismes_importants .arrow {
+	background: var(--white-color);
+    color: var(--gray-black-color);
+    border: 1px solid var(--gray-black-color);
+    font-size: 1.5rem;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    border-radius: 50%;
+}
 /*Section séismes importants*/
 
 /*Section recherche*/
