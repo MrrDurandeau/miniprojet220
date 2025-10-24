@@ -139,6 +139,72 @@
             <button class="arrow next">></button>
 		</div>
 	</section>
+
+	<section class="section_recherche">
+        <h2 class="section_title">Rechercher un séisme</h2>
+        <div class="form-result">
+            <form>
+                <h3>Recherche :</h3>
+                <div class="form_options">
+                    <div class="form_search_item">
+                        <label for="text">Lieu</label>
+                        <select id="lieu" class="lieu" name="lieu">
+                            <option value="ME" selected>Monde entier</option>
+                            <option value="AN">Amérique du nord</option>
+                            <option value="AS" >Amérique du sud</option>
+                            <option value="EU" >Europe</option>
+                            <option value="AF" >Afrique</option>
+                            <option value="ASI" >Asie</option>
+                            <option value="AU" >Australie</option>
+                        </select>
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Date de début</label>
+                        <input type="date" class="date" id="date" name="date">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Date de fin</label>
+                        <input type="date" class="date_fin" id="date_fin" name="date_fin">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Magnitude min</label>
+                        <input type="number" class="magnitude_min" id="magnitude_min" name="magnitude_min">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Magnitude max</label>
+                        <input type="number" class="magnitude_max" id="magnitude_max" name="magnitude_max">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Profondeur min</label>
+                        <input type="number" class="profondeur_min" id="profondeur_min" name="profondeur_min">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Profondeur max</label>
+                        <input type="number" class="profondeur_max" id="profondeur_max" name="profondeur_max">
+                    </div>
+
+                    <div class="form_search_item">
+                        <label for="text">Niveau d'alerte</label>
+                        <select id="alert" class="alert" name="alert">
+                            <option value="" selected>Tous les niveaux d'alerte</option>
+                            <option value="green">Vert</option>
+                            <option value="yellow" >Jaune</option>
+                            <option value="orange" >Orange</option>
+                            <option value="red" >Rouge</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <button id="recupBtn">Récupérer</button>
+            <div id="search_result"></div>
+        </div>
+    </section>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
