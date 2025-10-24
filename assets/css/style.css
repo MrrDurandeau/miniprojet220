@@ -174,10 +174,6 @@ nav ul {
 }
 
 /* Recent */
-.recent {
-  padding: 5rem;
-  background-color: var(--white-color);
-}
 .card {
   background: var(--white-color);
   padding: 1.5rem;
@@ -201,7 +197,6 @@ nav ul {
 }
 /* Que faire */
 .que-faire {
-  padding: 5rem;
   background-color: var(--gray-black-color);
   color: var(--white-color);
 }
