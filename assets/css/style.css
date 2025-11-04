@@ -404,4 +404,39 @@ form select {
     border-radius: 0.5rem;
     padding: 0.2rem;
 }
+
+#form_button {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #446100;
+  padding: 0.3rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  color: #fefefe;
+}
+
+.resul_infos {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.item_result {
+  background-color: #dcdcdc;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.item_result p a{
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #446100;
+  color:#fefefe ;
+}
+
+.item_result:first-child {
+  margin-top: 1rem;
+}
 /*Section recherhce*/
