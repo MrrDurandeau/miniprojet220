@@ -204,14 +204,17 @@ h1 {
 .magnitude {
   font-size: 1.4rem; 
   color: var(--gold-color);
+	padding-right: 1rem;
 }
 .heure {
   color: var(--secondary-color);
   font-size: 1.3rem;
+	padding-right: 1rem;
 }
 .tsunami {
 	color: var(--gray-black-color);
 	font-size: 1.3rem;
+	padding-right: 1rem;
 }
 /* Que faire */
 
