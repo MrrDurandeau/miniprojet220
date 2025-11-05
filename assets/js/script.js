@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="quake">
             <p class="magnitude">Magnitude : ${props.mag}</p>
             <p class="heure">Heure : ${date.toLocaleString()}</p>
+			<p class="tsunami">Tsunami : ${props.tsunami}</p>
             <p><a href="${props.url}" target="_blank">Détails USGS</a></p>
             </div>
             `;
