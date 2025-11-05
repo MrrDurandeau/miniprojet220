@@ -208,6 +208,10 @@ h1 {
   color: var(--secondary-color);
   font-size: 1.3rem;
 }
+.tsunami {
+	color: var(--gray-black-color);
+	font-size: 1.3rem;
+}
 /* Que faire */
 
 .pendant-div {
