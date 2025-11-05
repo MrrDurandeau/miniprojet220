@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
 }
 :root {
 	--primary-color: #1E3A8A;
@@ -15,7 +16,7 @@
 /*Partie commune*/
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+	scroll-behavior: smooth;
 }
 
 ul {
