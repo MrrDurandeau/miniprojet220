@@ -17,6 +17,7 @@
 
 body {
 	scroll-behavior: smooth;
+	transition: 2s;
 }
 
 ul {
