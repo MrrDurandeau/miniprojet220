@@ -189,7 +189,7 @@ h1 {
 .card {
   background: var(--white-color);
   padding: 1.5rem;
-	width: 60%;
+	width: 70%;
 }
 .quake {
   display: flex;
@@ -204,17 +204,17 @@ h1 {
 .magnitude {
   font-size: 1.4rem; 
   color: var(--gold-color);
-	padding-right: 1rem;
+	padding-right: 1.5rem;
 }
 .heure {
   color: var(--secondary-color);
   font-size: 1.3rem;
-	padding-right: 1rem;
+	padding-right: 1.5rem;
 }
 .tsunami {
 	color: var(--gray-black-color);
 	font-size: 1.3rem;
-	padding-right: 1rem;
+	padding-right: 1.5rem;
 }
 /* Que faire */
 
