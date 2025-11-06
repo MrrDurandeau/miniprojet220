@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="quake">
             <p class="magnitude">Magnitude : ${props.mag}</p>
             <p class="heure">Heure : ${date.toLocaleString()}</p>
-			<p class="tsunami">Tsunami : ${props.tsunami}</p>
+            <p class="tsunami">Tsunami : ${props.tsunami}</p>
             <p><a href="${props.url}" target="_blank">Détails USGS</a></p>
             </div>
             `;
@@ -121,12 +121,35 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(form_url)
             .then(response => response.json())
             .then(data => {
-                data.features.forEach(earthquake => {
+                data.features.forEach((earthquake, index) => {
                     const timestamp = earthquake.properties.time
                     const time_date = new Date(timestamp)
                     search_result.innerHTML +=`<div class="item_result"><h3>${earthquake.properties.place}</h3>
-                    <div class= "resul_infos"><p>Magnitude : ${earthquake.properties.mag}</p><p>Date et heure : ${time_date.toLocaleString()}</p></div><p><a href="${earthquake.properties.url}" target="_blank">En savoir plus</a></p></div><br>`;
+                    <div class= "resul_infos"><p>Magnitude : ${earthquake.properties.mag}</p><p>Date et heure : ${time_date.toLocaleString()}</p></div><div class="results_buttons"><p><a href="${earthquake.properties.url}" target="_blank">En savoir plus</a></p><button class="resuls_button_map${index}">Voir la carte</button></div><div class="map_message${index}"></div><div class="map${index}"></div></div><br>`;
+
                 });
+
+                //Bouton map
+
+                data.features.forEach((earthquake, index) => {
+                    const button_result_map = document.querySelector(`.resuls_button_map${index}`);
+                    const map = document.querySelector(`.map${index}`);
+                    const map_message = document.querySelector(`.map_message${index}`);
+
+                    button_result_map.addEventListener('click', function() {
+                        var result_map = `https://maps.geoapify.com/v1/staticmap?style=osm-bright-smooth&width=600&height=400&center=lonlat%3A${earthquake.geometry.coordinates[0]}%2C${earthquake.geometry.coordinates[1]}&zoom=5&marker=lonlat%3A${earthquake.geometry.coordinates[0]}%2C${earthquake.geometry.coordinates[1]}%3Btype%3Aawesome%3Bcolor%3A%23446100%3Bsize%3Ax-large%3Bicon%3Anone&apiKey=cbc93ac36e844719b3f0a1b4652a8476`;
+                        map_message.innerHTML = "Chargement de la carte..."
+                        map_message.style.color = "#446100";
+                        map_message.style.fontWeight = "bold";
+                        map.innerHTML = `<img class ="result_img_map${index}" src=${result_map} >`
+                        var img = document.querySelector(`.result_img_map${index}`);
+                        img.addEventListener('load', function() {
+                            map_message.innerHTML="";
+                        })
+                        
+                        
+                    });
+                });   
             })
     })
 	
