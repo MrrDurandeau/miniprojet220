@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+	const mapApiKey = 'cbc93ac36e844719b3f0a1b4652a8476';
 	// Le plus récent
     async function fetchLatestEarthquake() {
         const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
@@ -56,10 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[index].classList.add('active');
 		slide_number.innerHTML = index + 1 +"/4";
     })
-	// Partie tremblements de terre à haute magnitude
+	// Partie dernier séismes importants
 	const section_seismes_importants = document.getElementsByClassName('section_seismes_importants')[0];
-	const slides_sec2 = section_seismes_importants.querySelectorAll('.slide');
+	const slide_sec2 = section_seismes_importants.getElementsByClassName('slide')[0];
 	var index_sec2 = 0;
+	var earthquakes = [];
 	const date = new Date();
 	const endtime = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`;
 	const starttime = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()-1}`;
@@ -69,34 +71,53 @@ document.addEventListener("DOMContentLoaded", () => {
 		.then(data => {
 			let i = 0;
 			data.features.forEach(earthquake => {
-				fillQuakeSlide(slides_sec2,i,earthquake);
+				fillQuakeList(i,earthquake);
 				i++;
 			});
+			fillQuakeSlide()
 		})
 	
 	section_seismes_importants.querySelector('.next').addEventListener('click', function(){
-        slides_sec2[index_sec2].classList.remove('active');
         index_sec2++;
-        if (index_sec2 >= slides_sec2.length) {
+        if (index_sec2 >= 10) {
             index_sec2 = 0;
         }
-        slides_sec2[index_sec2].classList.add('active');
+		fillQuakeSlide()
     })
 
-     section_seismes_importants.querySelector('.prev').addEventListener('click', function(){
-        slides_sec2[index_sec2].classList.remove('active');
+     section_seismes_importants.querySelector('.prev').addEventListener('click', function(){;
         index_sec2--;
         if (index_sec2 == -1) {
-            index_sec2 = (slides_sec2.length - 1);
+            index_sec2 = 9;
         }
-        slides_sec2[index_sec2].classList.add('active');
+		fillQuakeSlide();
     })
 	
-	function fillQuakeSlide(slides,index,data) {
+	function fillQuakeList(index,data) {
 		let quakeDateObject = new Date(data.properties.time);
-		let quakeDate = `${quakeDateObject.getDate()}-${quakeDateObject.getMonth()+1}-${quakeDateObject.getFullYear()}`;
-		slides[index].innerHTML=`<p>${data.properties.place}<br><span>Magnitude ${data.properties.mag}</span><br><span>${quakeDate}</span></p>`;
-	};
+		let quakeDate = `${(quakeDateObject.getDate() < 10 ? '0' : '') + quakeDateObject.getDate()}-${((quakeDateObject.getMonth()+1) < 10 ? '0' : '') + (quakeDateObject.getMonth()+1)}-${quakeDateObject.getFullYear()}`;
+		let quakeTime = `${(quakeDateObject.getHours() < 10 ? '0' : '') + quakeDateObject.getHours()}:${(quakeDateObject.getMinutes() < 10 ? '0' : '') + quakeDateObject.getMinutes()}:${(quakeDateObject.getSeconds() < 10 ? '0' : '') + quakeDateObject.getSeconds()}`;
+		earthquakes.push({date:quakeDate, time:quakeTime, place:data.properties.place, mag:data.properties.mag, lat:data.geometry.coordinates[0], lon:data.geometry.coordinates[1]});
+	}
+	
+	function fillQuakeSlide() {
+		slide_sec2.innerHTML=`
+        <h3>${earthquakes[index_sec2].place}</h3>
+		<div class="quake_info">
+          <p>Magnitude ${earthquakes[index_sec2].mag}</p>
+          <p>Date et heure : ${earthquakes[index_sec2].date}, ${earthquakes[index_sec2].time}</p>
+        </div>
+		<div class="button_map_container">
+          <button class="map_button">Voir sur la carte</button>
+		</div>
+        `;
+		let mapButton = slide_sec2.getElementsByClassName('map_button')[0];
+		mapButton.addEventListener('click', function(){
+			let parentDiv = mapButton.parentElement;
+			let URL = `https://maps.geoapify.com/v1/staticmap?style=osm-bright-smooth&width=500&height=333&center=lonlat%3A${earthquakes[index_sec2].lat}%2C${earthquakes[index_sec2].lon}&zoom=4&marker=lonlat%3A${earthquakes[index_sec2].lat}%2C${earthquakes[index_sec2].lon}%3Btype%3Aawesome%3Bcolor%3A%23446100%3Bsize%3Ax-large%3Bicon%3Anone&apiKey=${mapApiKey}`
+			parentDiv.innerHTML = `<img src='${URL}' alt=''>`
+		});
+	}
 
 	// Partie recherche
 	const section_recherche = document.getElementsByClassName("section_recherche")[0];
