@@ -341,8 +341,8 @@ h1 {
 }
 
 .section_seismes_importants .slider {
-	max-height: 20rem;
-    max-width: 70rem;
+	max-height: 40rem;
+    max-width: 80rem;
     margin: auto;
 	display: flex;
 	justify-content: space-around;
@@ -350,14 +350,15 @@ h1 {
 }
 
 .section_seismes_importants .slide {
-	display: none;
+	display: block;
 	width: 40rem;
 	padding: 2rem;
-	box-shadow: 2px 2px 2px 2px var(--gray-black-color);
+	background-color: rgb(246, 241, 241);
+	text-align: center;
 }
 
-.section_seismes_importants .active {
-	display: block;
+.section_seismes_importants h3 {
+	color: var(--primary-color)
 }
 
 .section_seismes_importants .arrow {
@@ -368,6 +369,42 @@ h1 {
     padding: 0.5rem 0.9rem;
     cursor: pointer;
     border-radius: 50%;
+}
+
+.section_seismes_importants .map_button {
+	font-size: 0.9rem;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	background-color: #446100;
+	color:#fefefe;
+	border: none;
+}
+
+.section_seismes_importants .map_button:hover {
+	font-size: 0.9rem;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	background-color: white;
+	cursor: pointer;
+	color:#446100;
+}
+
+.section_seismes_importants .quake_info {
+	display: flex;
+	gap: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: center;
+}
+
+.section_seismes_importants .button_map_container {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+}
+
+.section_seismes_importants .map_button {
+	
 }
 /*Section séismes importants*/
 
