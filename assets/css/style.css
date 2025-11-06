@@ -453,4 +453,21 @@ form select {
 .item_result:first-child {
   margin-top: 1rem;
 }
+
+.results_buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.results_buttons button{
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: #446100;
+  color:#fefefe ;
+  cursor: pointer;
+}
+
 /*Section recherhce*/
