@@ -63,7 +63,7 @@ article {
 /*Partie navigation ----------------------------------------------*/
 
 nav {
-    background-color: #1F2937;
+    background-color: var(--gray-black-color);
     padding: 1rem;
     justify-content: space-around;
     /* gap: 8rem; */
@@ -403,7 +403,7 @@ h1 {
 	border-radius: 1rem;
 	background-color: var(--white-color);
 	cursor: pointer;
-	color:#446100;
+	color: var(--green-color);
 }
 
 .section_seismes_importants .quake_info {
@@ -527,7 +527,7 @@ form select {
   align-items: center;
   padding: 1rem;
   margin-top: 5rem;
-  background-color: #1F2937;
+  background-color: var(--gray-black-color);
 }
 
 footer img {
