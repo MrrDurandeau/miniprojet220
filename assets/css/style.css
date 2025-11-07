@@ -538,7 +538,7 @@ footer img {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  color: #fefefe;
+  color: var(--white-color);
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -546,11 +546,11 @@ footer img {
 .footer_ressources {
   display: flex;
   flex-direction: column;
-  color: #fefefe;
+  color: var(--white-color);
 }
 
 .footer_ressources a {
-  color: #FACC21;
+  color: var(--gold-color);
   display: inline-block;
   position: relative;
 }
@@ -563,7 +563,7 @@ footer img {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #fefefe;
+  background-color: var(--white-color);
   transition: width 0.3s ease;
 }
 
@@ -582,7 +582,7 @@ footer img {
 }
 
 .footer_retour_haut a {
-  color: #446100;
+  color: var(--green-color);
   padding: 0.2rem;
   border-radius: 1rem;
   font-size: 3rem;
