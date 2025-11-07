@@ -338,6 +338,10 @@ h1 {
 	80% { transform: translate(2px, -2px) rotate(1deg); }
 	100% { transform: translate(0); }
 }
+.que-faire .intro_source {
+	position: absolute;
+	top: 251vh;
+}
 .regle-or {
 	padding-top: 13rem;
 	padding-bottom: 3rem;
