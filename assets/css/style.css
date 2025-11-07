@@ -46,7 +46,7 @@ article {
   	color: var(--white-color);
 }
 .section_title {
-    background-color:#446100;
+    background-color: var(--green-color);
 	color: var(--white-color);
     padding: 1rem 0 1rem 0;
     text-align: center;
@@ -136,7 +136,7 @@ h1 {
     background-color: rgba(255, 255, 255, 0.63);
     padding: 0.3rem;
     border-radius: 1rem;
-    color:#446100;
+    color: var(--green-color);
 }
 
 .section_intro .active {
@@ -392,7 +392,7 @@ h1 {
 	font-size: 0.9rem;
 	padding: 0.5rem;
 	border-radius: 1rem;
-	background-color: #446100;
+	background-color: var(--green-color);
 	color: var(--white-color);
 	border: none;
 }
@@ -438,7 +438,7 @@ h3 {
 }
 
 .form_options {
-    color:  #446100;
+    color: var(--green-color);
     font-weight: bold;
     display: flex;
     justify-content: space-between;
@@ -472,7 +472,7 @@ form select {
   margin-top: 0.5rem;
   font-weight: bold;
   cursor: pointer;
-  background-color: #446100;
+  background-color: var(--green-color);
   padding: 0.3rem;
   border: 2px solid var(--black-color);
   border-radius: 1rem;
@@ -495,7 +495,7 @@ form select {
   font-size: 0.9rem;
   padding: 0.5rem;
   border-radius: 1rem;
-  background-color: #446100;
+  background-color: var(--green-color);
   color: var(--white-color);
 }
 
@@ -514,7 +514,7 @@ form select {
   padding: 0.5rem;
   border: none;
   border-radius: 1rem;
-  background-color: #446100;
+  background-color: var(--green-color);
   color: var(--white-color);
   cursor: pointer;
 }
@@ -563,7 +563,7 @@ footer img {
 }
 
 .footer_retour_haut a {
-  color: #446100;
+  color: var(--green-color);
   padding: 0.2rem;
   border-radius: 1rem;
   font-size: 3rem;
