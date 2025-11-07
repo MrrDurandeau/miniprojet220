@@ -137,10 +137,13 @@ h1 {
 }
 
 .section_intro .slide p a {
-    background-color: rgba(255, 255, 255, 0.63);
-    padding: 0.3rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    border: none;
     border-radius: 1rem;
+    background-color: var(--white-color);
     color: var(--green-color);
+    cursor: pointer;
 }
 
 .section_intro .active {
