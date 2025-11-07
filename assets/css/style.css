@@ -343,8 +343,7 @@ h1 {
 	100% { transform: translate(0); }
 }
 .que-faire .intro_source {
-	position: absolute;
-	top: 251vh;
+	padding-bottom: 2rem;
 }
 .regle-or {
 	padding-top: 13rem;
