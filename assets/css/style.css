@@ -1,17 +1,17 @@
 *, 
 *:after,
 *:before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
 }
 :root {
 	--primary-color: #1E3A8A;
-  --secondary-color: #7C5A44;
-  --gold-color: #FACC15;
-  --gray-black-color: #1F2937;
-  --white-color: #fefefe;
+  	--secondary-color: #7C5A44;
+  	--gold-color: #FACC15;
+  	--gray-black-color: #1F2937;
+  	--white-color: #fefefe;
 }
 /*Partie commune*/
 
@@ -81,7 +81,7 @@ nav ul {
 }
 
 .logo-txt {
- gap: 1rem;
+ 	gap: 1rem;
 }
 
 h1 {
@@ -145,15 +145,15 @@ h1 {
 
 .section_intro .arrow {
     position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      padding: 0.5rem 0.9rem;
-      cursor: pointer;
-      border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    border-radius: 50%;
 }
 
 .section_intro .slide_number {
@@ -170,7 +170,7 @@ h1 {
 }
 
 #intro_source{
-  color: rgb(119, 119, 119);
+	color: rgb(119, 119, 119);
 }
 
 /*Section intro*/
@@ -178,38 +178,38 @@ h1 {
 
 .que-faire h4,
 .recent h4 {
-  font-size: 1.3rem;
+	font-size: 1.3rem;
 }
 
 .item:nth-child(1),
 .item:nth-child(2) {
-  flex-grow: 1;
+	flex-grow: 1;
 }
 
 /* Recent */
 .card {
-  background: var(--white-color);
-  padding: 1.5rem;
+  	background: var(--white-color);
+  	padding: 1.5rem;
 	width: 70%;
 }
 .quake {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  	display: flex;
+  	justify-content: space-around;
+  	align-items: center;
 	padding-top: 0.7rem;
 }
 .position {
-  color: var(--primary-color);
-  font-size: 1.5rem;
+  	color: var(--primary-color);
+  	font-size: 1.5rem;
 }
 .magnitude {
-  font-size: 1.4rem; 
-  color: var(--gold-color);
+  	font-size: 1.4rem; 
+  	color: var(--gold-color);
 	padding-right: 1.5rem;
 }
 .heure {
-  color: var(--secondary-color);
-  font-size: 1.3rem;
+  	color: var(--secondary-color);
+  	font-size: 1.3rem;
 	padding-right: 1.5rem;
 }
 .tsunami {
@@ -220,117 +220,132 @@ h1 {
 /* Que faire */
 
 .pendant-div {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
+	display: flex;
+	justify-content: space-around;
+	padding: 2rem;
 }
 .pendant-div div p {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  padding: 1rem;
-  text-align: center;
+  	font-size: 1.5rem;
+  	text-transform: uppercase;
+  	padding: 1rem;
+  	text-align: center;
 }
 .pendant-div div {
-  padding: 1rem;
+  	padding: 1rem;
 }
 .inter ul,
 .exter ul,
 .voiture ul {
-  list-style: none;
-  padding-left: 0;
-  margin-left: 0;
+  	list-style: none;
+  	padding-left: 0;
+  	margin-left: 0;
 }
 
 .inter li,
 .exter li,
 .voiture li {
-  visibility: hidden;
-  opacity: 0;
-  font-size: 1.2rem;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  position: relative; /* reste dans le flux */
-  text-align: center;
+  	visibility: hidden;
+  	opacity: 0;
+  	font-size: 1.2rem;
+  	transition: opacity 0.5s ease, visibility 0.5s ease;
+  	position: relative; /* reste dans le flux */
+  	text-align: center;
 }
 
 /* Quand on survole le paragraphe */
 .inter p:hover + ul li,
 .exter p:hover + ul li,
 .voiture p:hover + ul li {
-  visibility: visible;
-  opacity: 1;
-  color: var(--white-color);
+  	visibility: visible;
+  	opacity: 1;
+  	color: var(--white-color);
 }
 .inter p,
 .exter p,
 .voiture p {
-  position: relative;
-  cursor: pointer;
+  	position: relative;
+  	cursor: pointer;
 }
 
 .inter p::after,
 .exter p::after,
 .voiture p::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 10px;
-  left: 35px;
-  width: 80%;
-  height: 2px;
-  background-color: var(--gold-color); /* jaune doré */
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  	content: "";
+  	position: absolute;
+  	left: 0;
+  	bottom: 10px;
+  	left: 35px;
+  	width: 80%;
+  	height: 2px;
+  	background-color: var(--gold-color); /* jaune doré */
+  	transform: scaleX(0);
+  	transform-origin: left;
+  	transition: transform 0.3s ease;
 }
 
 .inter p:hover::after,
 .exter p:hover::after,
 .voiture p:hover::after {
-  transform: scaleX(1);
+  	transform: scaleX(1);
 }
 
 .apres-ol {
-  padding: 1rem 7rem;
+  	padding: 1rem 7rem;
 }
 .apres-ol li {
-  font-size: 1.2rem;
-  padding: 0.5rem;
+  	font-size: 1.2rem;
+  	padding: 0.5rem;
 }
 .apres-ol li:hover {
-  cursor: pointer;
-  font-size: 1.3rem;
+  	cursor: pointer;
+  	font-size: 1.3rem;
 }
 .first {
-  position: absolute;
+  	position: absolute;
 }
 .second {
-  position: absolute;
-  margin-left: 8rem;
-  margin-top: 2rem;
+  	position: absolute;
+  	margin-left: 8rem;
+  	margin-top: 2rem;
 }
 .third {
-  position: absolute;
-  margin-left: 16rem;
-  margin-top: 4rem;
+  	position: absolute;
+  	margin-left: 16rem;
+  	margin-top: 4rem;
 }
 .fourth {
-  position: absolute;
-  margin-left: 24rem;
-  margin-top: 6rem;
+  	position: absolute;
+  	margin-left: 24rem;
+  	margin-top: 6rem;
 }
 .fifth {
-  position: absolute;
-  margin-left: 32rem;
-  margin-top: 8rem;
+  	position: absolute;
+  	margin-left: 32rem;
+  	margin-top: 8rem;
+}
+.shake {
+	display: inline-block;
+  	animation: shake 0.6s ease-in-out;
+}
+.shake:hover {
+	animation-iteration-count: infinite;
+}
+@keyframes shake {
+	0% { transform: translate(0); }
+	20% { transform: translate(-2px, 2px) rotate(-1deg); }
+	40% { transform: translate(-2px, -2px) rotate(1deg); }
+	60% { transform: translate(2px, 2px) rotate(1deg); }
+	80% { transform: translate(2px, -2px) rotate(1deg); }
+	100% { transform: translate(0); }
 }
 .regle-or {
 	padding-top: 13rem;
 	padding-bottom: 3rem;
 }
 .regle-or p {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--gold-color);
+  	text-align: center;
+  	font-size: 2rem;
+  	color: var(--gold-color);
 }
 
 /*Section séismes importants*/
