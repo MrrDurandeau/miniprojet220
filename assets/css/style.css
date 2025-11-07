@@ -524,4 +524,63 @@ form select {
   cursor: pointer;
 }
 
-/*Section recherhce*/
+/*Section recherche*/
+
+/*Footer*/
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 5rem;
+  background-color: #1F2937;
+}
+
+footer img {
+  width: 15rem;
+}
+
+.footer_logo_txt {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fefefe;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.footer_ressources {
+  display: flex;
+  flex-direction: column;
+  color: #fefefe;
+}
+
+.footer_ressources a {
+  color: #FACC21;
+}
+
+.footer_ressources li {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.footer_retour_haut {
+  transform: rotate(-90deg);
+}
+
+.footer_retour_haut a {
+  color: #446100;
+  padding: 0.2rem;
+  border-radius: 1rem;
+  font-size: 3rem;
+  background-color: #ffffff99;
+}
+
+.copyright {
+  padding: 0.5rem;
+  text-align: center;
+  background-color: #F6F1F1;
+}
+
+/*Footer*/
