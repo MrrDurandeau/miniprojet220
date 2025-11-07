@@ -15,7 +15,7 @@
 }
 /*Partie commune*/
 
-body {
+html, body {
 	scroll-behavior: smooth;
 	transition: 2s;
 }
