@@ -71,7 +71,11 @@ nav {
 
 nav a {
     color: var(--white-color);
+    transition: 0.3s;
 }
+ nav a:hover {
+  color: var(--green-color);
+ }
 
 nav img {
     height: 5rem;
