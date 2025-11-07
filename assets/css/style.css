@@ -14,7 +14,7 @@
   	--white-color: #fefefe;
 	--green-color: #446100;
 }
-/*Partie commune*/
+/*Partie commune --------------------------------------------*/
 
 html, body {
 	scroll-behavior: smooth;
@@ -31,7 +31,6 @@ a {
 
 .flex_center {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -53,14 +52,14 @@ article {
     margin-bottom: 3rem;
 }
 
-/*Partie commune*/
-
-/*Partie Header*/
 
 
-/*Partie Header*/
+/*Partie Header -------------------------------------------*/
 
-/*Partie navigation*/
+
+
+
+/*Partie navigation ----------------------------------------------*/
 
 nav {
     background-color: #1F2937;
@@ -89,9 +88,8 @@ h1 {
     color: #FEFEFE;
 }
 
-/*Partie navigation*/
 
-/*Section intro*/
+/*Section intro ------------------------------------------------*/
 
 .section_intro {
     width: 75rem;
@@ -174,9 +172,7 @@ h1 {
 	color: rgb(119, 119, 119);
 }
 
-/*Section intro*/
-
-
+/*Section intro que-faire et recent ------------------------------------------------*/
 .que-faire h4,
 .recent h4 {
 	font-size: 1.3rem;
@@ -187,7 +183,7 @@ h1 {
 	flex-grow: 1;
 }
 
-/* Recent */
+/* Recent ------------------------------------*/
 .card {
   	background: var(--white-color);
   	padding: 1.5rem;
@@ -218,7 +214,7 @@ h1 {
 	font-size: 1.3rem;
 	padding-right: 1.5rem;
 }
-/* Que faire */
+/* Que faire ----------------------------*/
 
 .pendant-div {
 	display: flex;
@@ -253,8 +249,8 @@ h1 {
   	text-align: center;
 }
 
-/* Quand on survole le paragraphe */
-.inter p:hover + ul li,
+
+.inter p:hover + ul li, /* Quand on survole le paragraphe */
 .exter p:hover + ul li,
 .voiture p:hover + ul li {
   	visibility: visible;
