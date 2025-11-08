@@ -524,6 +524,24 @@ form select {
   cursor: pointer;
 }
 
+.search_arrows_container {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	
+}
+
+.section_recherche .arrow {
+	background: var(--green-color);
+    color: var(--white-color);
+    font-size: 1.5rem;
+    padding: 0.5rem 0.9rem;
+    cursor: pointer;
+    border-radius: 50%;
+	border: none;
+}
 /*Footer ---------------------------------------------------------*/
 
 .footer {
