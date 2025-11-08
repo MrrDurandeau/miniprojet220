@@ -125,10 +125,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	const coords = {"ME": "", "AN": "&minlatitude=8.755&maxlatitude=72.182&minlongitude=-169.453&maxlongitude=-47.813", "AS": "&minlatitude=-58.263&maxlatitude=20.961&minlongitude=-93.516&maxlongitude=-31.289", "EU": "&minlatitude=35.747&maxlatitude=71.691&minlongitude=-13.887&maxlongitude=45", "AU": "&minlatitude=-44.59&maxlatitude=-9.449&minlongitude=110.391&maxlongitude=156.797", "ASI": "&minlatitude=-10.941&maxlatitude=77.365&minlongitude=69.961&maxlongitude=190.547", "AF": "&minlatitude=-35.791&maxlatitude=33.724&minlongitude=-17.227&maxlongitude=46.582"};
 
     const bouton = document.getElementById('form_button');
-    const search_result = document.getElementById('search_result')
+    const search_result = document.getElementById('search_result');
+	const search_arrows_container = document.querySelector('.search_arrows_container');
+	var search_items = [];
+	
+	var page_index = 1;
+	var pages_number = 0;
 
     bouton.addEventListener('click', () => {
         search_result.innerHTML = "";
+		search_items = [];
+		search_arrows_container.innerHTML = "";
+		var page_index = 1;
         const form_lieu = document.getElementById('lieu').value;
         const form_date = document.getElementById('date').value;
         const form_date_fin = document.getElementById('date_fin').value;
@@ -143,21 +151,16 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 data.features.forEach((earthquake, index) => {
-                    const timestamp = earthquake.properties.time
-                    const time_date = new Date(timestamp)
-                    search_result.innerHTML +=`<div class="item_result"><h3>${earthquake.properties.place}</h3>
-                    <div class= "resul_infos"><p>Magnitude : ${earthquake.properties.mag}</p><p>Date et heure : ${time_date.toLocaleString()}</p></div><div class="results_buttons"><p><a href="${earthquake.properties.url}" target="_blank">En savoir plus</a></p><button class="resuls_button_map${index}">Voir la carte</button></div><div class="map_message${index}"></div><div class="map${index}"></div></div><br>`;
-
-                });
-
-                //Bouton map
-
-                data.features.forEach((earthquake, index) => {
-                    const button_result_map = document.querySelector(`.resuls_button_map${index}`);
-                    const map = document.querySelector(`.map${index}`);
-                    const map_message = document.querySelector(`.map_message${index}`);
-
-                    button_result_map.addEventListener('click', function() {
+                    const timestamp = earthquake.properties.time;
+                    const time_date = new Date(timestamp);
+					const itemDiv = document.createElement("div");
+					itemDiv.classList.add("item_result");
+                    itemDiv.innerHTML = `<h3>${earthquake.properties.place}</h3>
+                    <div class= "resul_infos"><p>Magnitude : ${earthquake.properties.mag}</p><p>Date et heure : ${time_date.toLocaleString()}</p></div><div class="results_buttons"><p><a href="${earthquake.properties.url}" target="_blank">En savoir plus</a></p><button class="resuls_button_map">Voir la carte</button></div><div class="map_message"></div><div class="map"></div>`;
+					const button_result_map = itemDiv.querySelector(`.resuls_button_map`);
+					const map = itemDiv.querySelector(`.map`);
+					const map_message = itemDiv.querySelector(`.map_message`);
+					button_result_map.addEventListener('click', function() {
                         var result_map = `https://maps.geoapify.com/v1/staticmap?style=osm-bright-smooth&width=600&height=400&center=lonlat%3A${earthquake.geometry.coordinates[0]}%2C${earthquake.geometry.coordinates[1]}&zoom=5&marker=lonlat%3A${earthquake.geometry.coordinates[0]}%2C${earthquake.geometry.coordinates[1]}%3Btype%3Aawesome%3Bcolor%3A%23446100%3Bsize%3Ax-large%3Bicon%3Anone&apiKey=cbc93ac36e844719b3f0a1b4652a8476`;
                         map_message.innerHTML = "Chargement de la carte..."
                         map_message.style.color = "#446100";
@@ -166,12 +169,60 @@ document.addEventListener("DOMContentLoaded", () => {
                         var img = document.querySelector(`.result_img_map${index}`);
                         img.addEventListener('load', function() {
                             map_message.innerHTML="";
-                        })
-                        
-                        
+                        }) 
                     });
-                });   
+					search_items.push(itemDiv);
+                });
+				pages_number = splitPages();
+				changeSearchPage(0);
+				addSearchArrows(search_arrows_container);
             })
+		
     })
-	
+	// Divise les résultats en pages de 10 et renvoie le nombre de pages.
+	function splitPages() {
+		let temp_search_items = [];
+		let temp_array = [];
+		for (let i=0;i<search_items.length;i++) {
+			if (temp_array.length == 10) {
+				temp_search_items.push(temp_array);
+				temp_array = [];
+			};
+			temp_array.push(search_items[i]);
+		};
+		temp_search_items.push(temp_array);
+		search_items = temp_search_items;
+		return search_items.length;
+	}
+	function changeSearchPage(index) {
+		search_result.innerHTML = "";
+		search_items[index].forEach(item => {
+			search_result.appendChild(item);
+			search_result.appendChild(document.createElement("br"));
+		});
+	}
+	function addSearchArrows(container) {
+		container.innerHTML = `<button class="search_page_prev arrow"><</button><span class="page_numbers"><span class="page_index">1</span>/${pages_number}</span><button class="search_page_next arrow">></button>`
+		let index_span = container.querySelector('.page_index');
+		let arrow_next = container.querySelector('.search_page_next');
+		let arrow_prev = container.querySelector('.search_page_prev');
+		arrow_next.addEventListener('click', () => {
+			if ((page_index+1)>pages_number) {
+				page_index = 1;
+			} else {
+				page_index++;
+			}
+			index_span.textContent = page_index;
+			changeSearchPage(page_index-1);
+		});
+		arrow_prev.addEventListener('click', () => {
+			if ((page_index-1)<1) {
+				page_index = pages_number;
+			} else {
+				page_index--;
+			}
+			index_span.textContent = page_index;
+			changeSearchPage(page_index-1);
+		});
+	}
 })
