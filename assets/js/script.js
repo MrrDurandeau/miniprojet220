@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Partie recherche
 	const section_recherche = document.getElementsByClassName("section_recherche")[0];
-	const search_url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=100`;
 	const coords = {"ME": "", "AN": "&minlatitude=8.755&maxlatitude=72.182&minlongitude=-169.453&maxlongitude=-47.813", "AS": "&minlatitude=-58.263&maxlatitude=20.961&minlongitude=-93.516&maxlongitude=-31.289", "EU": "&minlatitude=35.747&maxlatitude=71.691&minlongitude=-13.887&maxlongitude=45", "AU": "&minlatitude=-44.59&maxlatitude=-9.449&minlongitude=110.391&maxlongitude=156.797", "ASI": "&minlatitude=-10.941&maxlatitude=77.365&minlongitude=69.961&maxlongitude=190.547", "AF": "&minlatitude=-35.791&maxlatitude=33.724&minlongitude=-17.227&maxlongitude=46.582"};
 
     const bouton = document.getElementById('form_button');
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         search_result.innerHTML = "";
 		search_items = [];
 		search_arrows_container.innerHTML = "";
-		var page_index = 1;
+		page_index = 1;
         const form_lieu = document.getElementById('lieu').value;
         const form_date = document.getElementById('date').value;
         const form_date_fin = document.getElementById('date_fin').value;
