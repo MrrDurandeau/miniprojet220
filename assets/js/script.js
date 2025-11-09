@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const mapApiKey = 'cbc93ac36e844719b3f0a1b4652a8476';
+	// Fonctions générales
+	function translateTitle(title) {
+		let translateDict = {"N": "au nord de", "E": "à l'est de", "S": "au sud de", "W": "à l'ouest de", "NW": "au nord-ouest de", "NE": "au nord-est de", "SE": "au sud-est de", "SW": "au sud-ouest de", "NNE": "au nord-nord-est de", "ENE": "à l'est-nord-est de", "NNW": "au nord-nord-ouest de", "WNW": "à l'ouest-nord-ouest de", "SSE": "au sud-sud-est de", "ESE": "à l'est-sud-est de", "SSW": "au sud-sud-ouest de", "WSW": "à l'ouest-sud-ouest de"};
+		let splitTitle = title.split(" ");
+		if ((splitTitle[1] == "km") && (splitTitle[3] == "of")) {
+			splitTitle[2] = translateDict[splitTitle[2]];
+			splitTitle.splice(3,1);
+		};
+		return splitTitle.join(' ');
+	}
 	// Le plus récent
     async function fetchLatestEarthquake() {
         const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
@@ -13,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const date = new Date(props.time);
 
             document.getElementById("earthquake").innerHTML = `
-            <h2 class="position">${props.place}</h2>
+            <h2 class="position">${translateTitle(props.place)}</h2>
             <div class="quake">
             <p class="magnitude">Magnitude : ${props.mag}</p>
             <p class="heure">Heure : ${date.toLocaleString()}</p>
@@ -96,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let quakeDateObject = new Date(data.properties.time);
 		let quakeDate = `${(quakeDateObject.getDate() < 10 ? '0' : '') + quakeDateObject.getDate()}-${((quakeDateObject.getMonth()+1) < 10 ? '0' : '') + (quakeDateObject.getMonth()+1)}-${quakeDateObject.getFullYear()}`;
 		let quakeTime = `${(quakeDateObject.getHours() < 10 ? '0' : '') + quakeDateObject.getHours()}:${(quakeDateObject.getMinutes() < 10 ? '0' : '') + quakeDateObject.getMinutes()}:${(quakeDateObject.getSeconds() < 10 ? '0' : '') + quakeDateObject.getSeconds()}`;
-		earthquakes.push({date:quakeDate, time:quakeTime, place:data.properties.place, mag:data.properties.mag, lat:data.geometry.coordinates[0], lon:data.geometry.coordinates[1]});
+		earthquakes.push({date:quakeDate, time:quakeTime, place:translateTitle(data.properties.place), mag:data.properties.mag, lat:data.geometry.coordinates[0], lon:data.geometry.coordinates[1]});
 	}
 	
 	function fillQuakeSlide() {
@@ -153,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const time_date = new Date(timestamp);
 					const itemDiv = document.createElement("div");
 					itemDiv.classList.add("item_result");
-                    itemDiv.innerHTML = `<h3>${earthquake.properties.place}</h3>
+                    itemDiv.innerHTML = `<h3>${translateTitle(earthquake.properties.place)}</h3>
                     <div class= "resul_infos"><p>Magnitude : ${earthquake.properties.mag}</p><p>Date et heure : ${time_date.toLocaleString()}</p></div><div class="results_buttons"><p><a href="${earthquake.properties.url}" target="_blank">En savoir plus</a></p><button class="resuls_button_map">Voir la carte</button></div><div class="map_message"></div><div class="map"></div>`;
 					const button_result_map = itemDiv.querySelector(`.resuls_button_map`);
 					const map = itemDiv.querySelector(`.map`);
