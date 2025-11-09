@@ -63,9 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	var index_sec2 = 0;
 	var earthquakes = [];
 	const date = new Date();
-	const endtime = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`;
 	const starttime = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()-1}`;
-	const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${starttime}&endtime=${endtime}&minmagnitude=6&limit=10`;
+	const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${starttime}&endtime=&minmagnitude=6&limit=10`;
 	fetch(url)
 		.then(response => response.json())
 		.then(data => {
